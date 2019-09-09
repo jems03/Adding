@@ -1,5 +1,5 @@
-from tkinter import *
-from tkinter import messagebox
+from tkinter import *  
+from tkinter import ttk
 
 EmployeeInfo = []
 
@@ -43,10 +43,6 @@ Label(fr, text='Employee Name:').grid(row=0,padx=20,pady=10)
 Label(fr, text='Department:').grid(row=1,padx=20,pady=10)
 Label(fr, text='Position:').grid(row=2,padx=20,pady=10)
 Label(fr, text='Employee Rate:').grid(row=3,padx=20,pady=10)
-Label(fr, text='Name').grid(row=5,column=0,padx=20,pady=10)
-Label(fr, text='Department').grid(row=5,column=1,padx=20,pady=10)
-Label(fr, text='Position').grid(row=5,column=2,padx=20,pady=10)
-Label(fr, text='Rate').grid(row=5,column=3,padx=20,pady=10)
 
 en1 = Entry(fr)
 d1 = Entry(fr)
@@ -60,4 +56,14 @@ er1.grid(row=3,column=1,padx=20,pady=10)
 
 btn1 = Button(fr, text='Insert', command=lambda:[thanks(),info(),clear()])
 btn1.grid(row=4,column=1,padx=20,pady=10)
+
+tview = ttk.Treeview(fr,column=("Name", "Department", "Position", "Rate"), show="headings")
+tview.heading('#1', text='Name')
+tview.heading('#2', text='Department')
+tview.heading('#3', text='Position')
+tview.heading('#4', text='Rate')
+tview.grid(row=5,column=0,columnspan=5)
+
+
+        
 fr.mainloop()
