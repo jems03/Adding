@@ -1,4 +1,5 @@
-from tkinter import *  
+from tkinter import *
+from tkinter import messagebox
 from tkinter import ttk
 
 EmployeeInfo = []
@@ -30,6 +31,11 @@ def info():
     EmployeeInfo.append(Adds(name,dept,pos,erate))
     for a in EmployeeInfo:
         print(a.name, a.department, a.position, a.rate)
+    global tview
+    for i in tview.get_children():
+        tview.delete(i)
+    for a in EmployeeInfo:
+        tview.insert("",'end', values=(a.name,a.department,a.position,a.rate))
         
 
 def clear():
@@ -62,7 +68,11 @@ tview.heading('#1', text='Name')
 tview.heading('#2', text='Department')
 tview.heading('#3', text='Position')
 tview.heading('#4', text='Rate')
+
 tview.grid(row=5,column=0,columnspan=5)
+
+
+
 
 
         
